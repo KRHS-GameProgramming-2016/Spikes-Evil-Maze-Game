@@ -14,7 +14,15 @@ height = 600
 size = width, height
 screen = pygame.display.set_mode(size)  
 
+
 bgColor = r,g,b = 0, 0, 0
+
+while True:
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT: sys.exit()
+        
+
+
 
 
 bgColor = r,g,b

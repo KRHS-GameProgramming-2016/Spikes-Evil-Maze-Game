@@ -7,12 +7,12 @@ class Level():
         
         self.loadLevel(levelFile)
     
-    def unloadLevel(self): h
+    def unloadLevel(self):
         self.walls = []
       
                
     def loadLevel(self, levelFile):        
-        f = open("rsc/levels/"+levelFile, 'r')
+        f = open("Resources/levels/"+levelFile, 'r')
         lines = f.readlines()
         f.close()
         

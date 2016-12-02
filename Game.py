@@ -5,7 +5,7 @@ from Player import *
 from Score import *
 from Timer import *
 from Wall import *
-pygame.init()
+pygame.init()  
 
 clock = pygame.time.Clock()
 

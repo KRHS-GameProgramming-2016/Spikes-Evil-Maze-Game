@@ -41,9 +41,10 @@ class Level():
         for y,line in enumerate(lines):
             for x,c in enumerate(line):
                 if c == '#':
-                    self.walls += [Wall([x*self.tileSize + self.tileSize/2,
-                                        y*self.tileSize + self.tileSize/2],
-                                       self.tileSize)
+                    self.walls += [Wall("wall.png",
+                                        [x*self.tileSize + self.tileSize/2,
+                                         y*self.tileSize + self.tileSize/2],
+                                        self.tileSize)
                                   ]
                                                 
 

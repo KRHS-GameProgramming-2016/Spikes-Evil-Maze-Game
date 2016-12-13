@@ -9,7 +9,7 @@ pygame.init()
 
 clock = pygame.time.Clock()
 
-width = 1200  
+width = 1200l  
 height = 700
 size = width, height
 screen = pygame.display.set_mode(size)  

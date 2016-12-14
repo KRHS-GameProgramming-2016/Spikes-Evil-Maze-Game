@@ -20,7 +20,7 @@ level = Level("level1.lvl")
 
 walls = level.walls
 
-
+ 
 
 using = "keyboard"
 

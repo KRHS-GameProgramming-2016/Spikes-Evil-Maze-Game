@@ -1,8 +1,9 @@
 import pygame, sys, math
 
 class Player():
-    def __init__(self, pos=[0,0]):
+    def __init__(self, pos=[0,0], tileSize = 50):
         self.image = pygame.image.load("Player.png")
+        self.image = pygame.transform.scale(self.image, [tileSize,tileSize])
         self.rect = self.image.get_rect(center = pos)
         self.speedx = 0
         self.speedy = 0

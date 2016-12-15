@@ -24,7 +24,7 @@ level = Level("level1.lvl")
 
 walls = level.walls
 
-player = Player([width/2,height/2])
+player = level.player
 
 using = "keyboard"
 

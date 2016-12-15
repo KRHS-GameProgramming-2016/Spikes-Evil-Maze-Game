@@ -1,10 +1,11 @@
 import pygame, sys, math
+from Player  import *
 from Wall import *
 class Level():
     def __init__(self, levelFile, tileSize=25):
         self.walls = []
         self.tileSize = tileSize
-        
+        self.player = None
         self.loadLevel(levelFile)
     
     def unloadLevel(self):
@@ -46,7 +47,10 @@ class Level():
                                          y*self.tileSize + self.tileSize/2],
                                         self.tileSize)
                                   ]
-                                                
+                if c == "@":
+                    self.player = Player([x*self.tileSize + self.tileSize/2,
+                                          y*self.tileSize + self.tileSize/2],
+                                          self.tileSize)
 
         
 #Level("level1.lvl")

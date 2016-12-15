@@ -9,13 +9,12 @@ pygame.init()
 
 clock = pygame.time.Clock()
 
-<<<<<<< HEAD
 width = 1200  
 height = 1200
-=======
-width = 1200l  
+
+width = 1200
 height = 700
->>>>>>> origin/master
+
 size = width, height
 screen = pygame.display.set_mode(size)  
 
@@ -25,7 +24,7 @@ level = Level("level1.lvl")
 
 walls = level.walls
 
- 
+player = Player([width/2,height/2])
 
 using = "keyboard"
 
@@ -58,8 +57,7 @@ while True:
 
     bgColor = r,g,b
     screen.fill(bgColor)
-    for player in players:
-        screen.blit(player.image, player.rect)
+    screen.blit(player.image, player.rect)
     screen.blit(player.image, player.rect)
     for wall in walls:
         screen.blit(wall.image, wall.rect)

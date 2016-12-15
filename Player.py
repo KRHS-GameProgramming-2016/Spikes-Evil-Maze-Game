@@ -1,4 +1,4 @@
-  import pygame, sys, math
+import pygame, sys, math
 
 class Player():
     def __init__(self, pos=[0,0]):

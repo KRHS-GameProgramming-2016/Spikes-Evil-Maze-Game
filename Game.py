@@ -53,7 +53,10 @@ while True:
                 if event.key == pygame.K_LEFT:
                     player.go("stop left")
 
-
+    player.move()
+    
+    for wall in walls:
+        player.bounceWall(wall)
 
     bgColor = r,g,b
     screen.fill(bgColor)

@@ -18,7 +18,7 @@ height = 700
 size = width, height
 screen = pygame.display.set_mode(size)  
 
-bgColor = r,g,b = 0, 0, 0
+bgColor = r,g,b = 21, 64, 22
 
 level = Level("level1.lvl")
 
@@ -53,7 +53,10 @@ while True:
                 if event.key == pygame.K_LEFT:
                     player.go("stop left")
 
-
+    player.move()
+    
+    for wall in walls:
+        player.bounceWall(wall)
 
     bgColor = r,g,b
     screen.fill(bgColor)

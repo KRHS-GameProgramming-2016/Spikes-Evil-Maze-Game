@@ -1,6 +1,6 @@
 import pygame, sys, math, random
 from Level import *
-from Goal import *
+from Goal import *  
 from Player import *
 from Score import *
 from Timer import *

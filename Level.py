@@ -1,6 +1,7 @@
 import pygame, sys, math
 from Player  import *
 from Wall import *
+from Goal import *
 class Level():
     def __init__(self, levelFile, tileSize=25):
         self.walls = []
@@ -49,6 +50,11 @@ class Level():
                                   ]
                 if c == "@":
                     self.player = Player([x*self.tileSize + self.tileSize/2,
+                                          y*self.tileSize + self.tileSize/2],
+                                          self.tileSize)
+                                          
+                if c == "$":
+                    self.goal = Goal([x*self.tileSize + self.tileSize/2,
                                           y*self.tileSize + self.tileSize/2],
                                           self.tileSize)
 

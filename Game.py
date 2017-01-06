@@ -22,6 +22,9 @@ bgColor = r,g,b = 21, 64, 22
 
 level = Level("level1.lvl")
 
+Goals = [Goal("Resources/Goal.png")
+        ]
+
 walls = level.walls
 
 player = level.player
@@ -55,11 +58,25 @@ while True:
 
     player.move()
     
+
     for wall in walls:
         player.bounceWall(wall)
+        
+    for hitter in Goals:
+        for hittie in Goals:
+            if hitter != hittie:
+                hitter.bounceGoal(hittie)
+        if player.bounceGoal(hitter):
+            Goals.remove(hitter)
+            level.unloadLevel()
+            levelNumber += 1
+            level.loadLevel("level"+str(levelNumber)+".lvl")
+            walls = level.walls
 
     bgColor = r,g,b
-    screen.fill(bgColor)
+
+    for Goal in Goals:
+        screen.blit(Goal.image, Goal.rect)
     screen.blit(player.image, player.rect)
     screen.blit(player.image, player.rect)
     for wall in walls:

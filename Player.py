@@ -57,5 +57,11 @@ class Player():
                 self.didBounceX = True
                 self.speedy = 0
                 self.didBounceY = True
+    
+    def bounceGoal(self, other):
+        if self.rect.right > other.rect.left and self.rect.left < other.rect.right:
+            if self.rect.bottom > other.rect.top and self.rect.top < other.rect.bottom:
+                return True
+        return False
                 
                 

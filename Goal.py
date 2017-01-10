@@ -5,4 +5,4 @@ class Goal():
         self.image = pygame.image.load("Resources/Goal.png")
         self.image = pygame.transform.scale(self.image, [tileSize,tileSize])
         self.rect = self.image.get_rect(center = pos)
-        self.radius = self.rect.width/2 -1
+ 

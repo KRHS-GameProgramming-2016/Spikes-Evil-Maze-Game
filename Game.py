@@ -2,8 +2,9 @@ import pygame, sys, math, random
 from Level import *
 from Goal import *
 from Player import *
-from Score import *
 from Wall import *
+from Timer import *
+from Score import *
 pygame.init()  
 
 clock = pygame.time.Clock()
@@ -30,6 +31,7 @@ using = "keyboard"
 
 levelNumber = 1
 
+timer = Timer([width/2, 50])
 while True:
     for event in pygame.event.get():
         if event.type == pygame.QUIT: sys.exit()
@@ -55,7 +57,6 @@ while True:
 
     player.move()
     
-
     for wall in walls:
         player.bounceWall(wall)
         
@@ -68,11 +69,14 @@ while True:
         player = level.player
         goal = level.goal
 
+    timer.update()
+
     bgColor = r,g,b
     screen.fill(bgColor)
     screen.blit(goal.image, goal.rect)
     screen.blit(player.image, player.rect)
     for wall in walls:
         screen.blit(wall.image, wall.rect)
+    screen.blit(timer.image, timer.rect)
     pygame.display.flip()
     clock.tick(60)

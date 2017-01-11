@@ -57,7 +57,6 @@ while True:
 
     player.move()
     
-
     for wall in walls:
         player.bounceWall(wall)
         

@@ -2,6 +2,8 @@ import pygame, sys, math
 from Player  import *
 from Wall import *
 from Goal import *
+from Score import *
+
 class Level():
     def __init__(self, levelFile, tileSize=25):
         self.walls = []

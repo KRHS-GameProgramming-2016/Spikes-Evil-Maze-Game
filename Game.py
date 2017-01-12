@@ -5,12 +5,11 @@ from Player import *
 from Wall import *
 from Timer import *
 from Score import *
+from LevelIndicator import *
+#from LevelNumber import *
 pygame.init()  
 
 clock = pygame.time.Clock()
-
-width = 1200  
-height = 1200
 
 width = 1200
 height = 700
@@ -30,6 +29,8 @@ print goal.rect
 using = "keyboard"
 
 levelNumber = 1
+levelIndicator = LevelIndicator([width-10, 10], levelNumber)
+
 
 timer = Timer([width/2, 50])
 while True:
@@ -68,8 +69,10 @@ while True:
         walls = level.walls
         player = level.player
         goal = level.goal
+        levelIndicator.set(levelNumber)
 
     timer.update()
+    #print levelIndicator.value, levelIndicator.rect
 
     bgColor = r,g,b
     screen.fill(bgColor)
@@ -78,5 +81,6 @@ while True:
     for wall in walls:
         screen.blit(wall.image, wall.rect)
     screen.blit(timer.image, timer.rect)
+    screen.blit(levelIndicator.image, levelIndicator.rect)
     pygame.display.flip()
     clock.tick(60)

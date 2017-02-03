@@ -10,7 +10,7 @@ from LevelIndicator import *
 pygame.init()  
 
 clock = pygame.time.Clock()
-
+  
 width = 1200
 height = 700
 

@@ -3,6 +3,7 @@ import pygame, sys, math, random
 from Level import *
 from Goal import *
 from Player import *
+from Enemy import *
 from Wall import *
 from Timer import *
 from Score import *
@@ -23,6 +24,7 @@ bgColor = r,g,b = 21, 64, 22
 level = Level("level1.lvl")
 
 walls = level.walls
+enemies = level.enemies
 player = level.player
 goal = level.goal
 print goal.rect
@@ -61,6 +63,12 @@ while True:
     
     for wall in walls:
         player.bounceWall(wall)
+    
+    for enemy in enemies:
+        enemy.move()
+        enemy.update()
+        for wall in walls:
+            enemy.bounceWall(wall)
         
     
     if player.bounceGoal(goal):
@@ -79,6 +87,8 @@ while True:
     screen.fill(bgColor)
     screen.blit(goal.image, goal.rect)
     screen.blit(player.image, player.rect)
+    for enemy in enemies:
+        screen.blit(enemy.image, enemy.rect)
     for wall in walls:
         screen.blit(wall.image, wall.rect)
     screen.blit(timer.image, timer.rect)

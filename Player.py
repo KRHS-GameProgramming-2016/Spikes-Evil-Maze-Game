@@ -2,8 +2,16 @@ import pygame, sys, math
 
 class Player():
     def __init__(self, pos=[0,0], tileSize = 50):
-        self.image = pygame.image.load("Player.png")
-        self.image = pygame.transform.scale(self.image, [tileSize,tileSize])
+        tileSize = tileSize - 6
+        self.imageUp = pygame.image.load('Resources/PlayerImages/PlayerU.png')
+        self.imageDown = pygame.image.load('Resources/PlayerImages/PlayerD.png')
+        self.imageRight = pygame.image.load('Resources/PlayerImages/PlayerR.png')
+        self.imageLeft = pygame.image.load('Resources/PlayerImages/PlayerL.png')
+        self.imageUp = pygame.transform.scale(self.imageUp, [tileSize,tileSize])
+        self.imageDown = pygame.transform.scale(self.imageDown, [tileSize,tileSize])
+        self.imageRight = pygame.transform.scale(self.imageRight, [tileSize,tileSize])
+        self.imageLeft = pygame.transform.scale(self.imageLeft, [tileSize,tileSize])
+        self.image = self.imageLeft
         self.rect = self.image.get_rect(center = pos)
         self.speedx = 0
         self.speedy = 0
@@ -17,13 +25,16 @@ class Player():
     def go(self, direction):
         if direction == "up":
             self.speedy = -self.maxSpeed
+            self.image = self.imageUp
         if direction == "down":
             self.speedy = self.maxSpeed
+            self.image = self.imageDown
         if direction == "left":
             self.speedx = -self.maxSpeed
+            self.image = self.imageLeft
         if direction == "right":
             self.speedx = self.maxSpeed 
-            
+            self.image = self.imageRight
         if direction == "stop up":
             self.speedy = 0
         if direction == "stop down":
@@ -63,5 +74,10 @@ class Player():
             if self.rect.bottom > other.rect.top and self.rect.top < other.rect.bottom:
                 return True
         return False
+        
+    def enemyCollide(self, enemy):
+         if self.rect.right > enemy.rect.left and self.rect.left < enemy.rect.right:
+            if self.rect.bottom > enemy.rect.top and self.rect.top < enemy.rect.bottom:
+                self.lives = self.lives - 1
                 
                 

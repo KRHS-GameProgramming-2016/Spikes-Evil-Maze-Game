@@ -6,14 +6,15 @@ from Wall import *
 from Timer import *
 from Score import *
 from LevelIndicator import *
-#from LevelNumber import *
+from Enemy import *
+
 pygame.init()  
 
 clock = pygame.time.Clock()
 
 width = 1200
 height = 700
-
+    
 size = width, height
 screen = pygame.display.set_mode(size)  
 
@@ -25,11 +26,16 @@ walls = level.walls
 player = level.player
 goal = level.goal
 print goal.rect
-
+ 
 using = "keyboard"
 
 levelNumber = 1
 levelIndicator = LevelIndicator([width-10, 10], levelNumber)
+
+enemies = level.enemies
+print len(enemies)
+
+
 
 
 timer = Timer([width/2, 50])
@@ -49,6 +55,7 @@ while True:
             if event.type == pygame.KEYUP:
                 if event.key == pygame.K_UP:
                     player.go("stop up")
+                    player.image
                 if event.key == pygame.K_DOWN:
                     player.go("stop down")
                 if event.key == pygame.K_RIGHT:
@@ -56,10 +63,13 @@ while True:
                 if event.key == pygame.K_LEFT:
                     player.go("stop left")
 
-    player.move()
+    player.move() 
+    for enemy in enemies:
+        enemy.move()  
     
     for wall in walls:
         player.bounceWall(wall)
+        enemy.bounceWall(wall)
         
     
     if player.bounceGoal(goal):
@@ -76,6 +86,8 @@ while True:
 
     bgColor = r,g,b
     screen.fill(bgColor)
+    for enemy in enemies:
+        screen.blit(enemy.image, enemy.rect)
     screen.blit(goal.image, goal.rect)
     screen.blit(player.image, player.rect)
     for wall in walls:

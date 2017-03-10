@@ -73,7 +73,6 @@ while True:
     
     for enemy in enemies:
         enemy.move()
-        enemy.update()
         for wall in walls:
             enemy.bounceWall(wall)
         

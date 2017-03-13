@@ -18,6 +18,7 @@ class Player():
         self.speedy = 0
         self.speed = [self.speedx, self.speedy]
         self.maxSpeed = 5
+        self.startPos = pos
 
     def move(self):
         self.speed = [self.speedx, self.speedy]
@@ -69,6 +70,12 @@ class Player():
                 self.didBounceX = True
                 self.speedy = 0
                 self.didBounceY = True
+                
+    def bounceEnemy(self, other):
+        if self.rect.right > other.rect.left and self.rect.left < other.rect.right:
+            if self.rect.bottom > other.rect.top and self.rect.top < other.rect.bottom:
+                self.rect.center = self.startPos
+
     
     def bounceGoal(self, other):
         if self.rect.right > other.rect.left and self.rect.left < other.rect.right:

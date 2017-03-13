@@ -71,14 +71,14 @@ class Level():
                                           y*self.tileSize + self.tileSize/2],
                                           self.tileSize)
                                           
-                if c in "x" :       #Pew
+                if c in "x" :       
                     self.enemies += [Enemy(1,
                                        [x*self.tileSize + self.tileSize/2,
                                         y*self.tileSize + self.tileSize/2],
                                        self.tileSize)
                                   ]
                                   
-                if c in "y" :       #Beatbox
+                if c in "y" :       
                     self.enemies += [ShootingEnemy(1,
                                        [x*self.tileSize + self.tileSize/2,
                                         y*self.tileSize + self.tileSize/2],

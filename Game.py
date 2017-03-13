@@ -39,7 +39,6 @@ print len(enemies)
 
 
 
-
 timer = Timer([width/2, 50])
 while True:
     for event in pygame.event.get():
@@ -70,11 +69,13 @@ while True:
     
     for wall in walls:
         player.bounceWall(wall)
+        
     
     for enemy in enemies:
         enemy.move()
         for wall in walls:
             enemy.bounceWall(wall)
+        player.bounceEnemy(enemy)
         
     
     if player.bounceGoal(goal):

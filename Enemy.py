@@ -103,13 +103,6 @@ class Enemy():
         elif self.rect.center[0] < 0:
             self.rect.center = [screenWidth, self.rect.center[1]]
 
-    def playerCollide(self, other):
-        if self.rect.right > other.rect.left and self.rect.left < other.rect.right:
-                if self.rect.bottom > other.rect.top and self.rect.top < other.rect.bottom:
-                    self.speedx = -self.speedx
-                    self.speedy = -self.speedy
-                    self.move()
-                    other.hit = True
 
 
     def dist(self, pt):

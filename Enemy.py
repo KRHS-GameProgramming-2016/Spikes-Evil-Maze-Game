@@ -54,7 +54,7 @@ class Enemy():
         self.animate()
 
     def decideDirection(self):
-        d = random.randint(0,3)
+        d = random.randint(0,2)
         if d == 0: #up
             self.speedx = 0
             self.speedy = -self.maxSpeed

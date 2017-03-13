@@ -76,6 +76,9 @@ class Player():
             if self.rect.bottom > other.rect.top and self.rect.top < other.rect.bottom:
                 self.rect.center = self.startPos
 
+                                    
+                        
+
     
     def bounceGoal(self, other):
         if self.rect.right > other.rect.left and self.rect.left < other.rect.right:

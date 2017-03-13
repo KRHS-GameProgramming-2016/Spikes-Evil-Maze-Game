@@ -83,6 +83,7 @@ while True:
         level.loadLevel("level"+str(levelNumber)+".lvl")
         walls = level.walls
         player = level.player
+        enemies = level.enemies
         goal = level.goal
         levelIndicator.set(levelNumber)
 

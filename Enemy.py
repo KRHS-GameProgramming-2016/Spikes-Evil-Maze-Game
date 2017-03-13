@@ -1,6 +1,7 @@
 import pygame, sys, math, random
 
 
+
 class Enemy():
     def __init__(self, speed=0, pos=[0,0], size=32):
         self.size = size
@@ -88,9 +89,7 @@ class Enemy():
             if self.rect.bottom > other.rect.top and self.rect.top < other.rect.bottom:
                 self.speedx = -self.speedx
                 self.speedy = -self.speedy
-                self.speedx = 0
                 self.didBounceX = True
-                self.speedy = 0
                 self.didBounceY = True
                 self.move()
 

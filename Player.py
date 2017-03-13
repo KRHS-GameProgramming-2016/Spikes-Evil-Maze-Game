@@ -76,9 +76,7 @@ class Player():
                 return True
         return False
         
-    def enemyCollide(self, enemy):
-         if self.rect.right > enemy.rect.left and self.rect.left < enemy.rect.right:
-            if self.rect.bottom > enemy.rect.top and self.rect.top < enemy.rect.bottom:
-                self.lives = self.lives - 1
-                
-                
+    #def enemyCollide(self, enemy):
+         #if self.rect.right > enemy.rect.left and self.rect.left < enemy.rect.right:
+            #if self.rect.bottom > enemy.rect.top and self.rect.top < enemy.rect.bottom:
+                #self.player.
